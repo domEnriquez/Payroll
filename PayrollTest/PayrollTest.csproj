@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\NUnit3TestAdapter.3.8.0\build\net35\NUnit3TestAdapter.props" Condition="Exists('..\packages\NUnit3TestAdapter.3.8.0\build\net35\NUnit3TestAdapter.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{95FDD486-704F-4F2F-91DC-CFCB707B02A7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PayrollTest</RootNamespace>
+    <AssemblyName>PayrollTest</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="nunit.framework, Version=3.7.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.3.7.1\lib\net45\nunit.framework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="PayrollTest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PaymentImplementation\PaymentImplementation.csproj">
+      <Project>{84B8F90D-E541-4F68-958A-887600B77776}</Project>
+      <Name>PaymentImplementation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PayrollApplication\PayrollApplication.csproj">
+      <Project>{A6C2EAE4-9E34-4369-B63D-E80B7C1167C3}</Project>
+      <Name>PayrollApplication</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PayrollDatabase\PayrollDatabase.csproj">
+      <Project>{CD89AEA1-7DCF-4B2D-B48C-4EE35D3E587A}</Project>
+      <Name>PayrollDatabase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PayrollDomain\PayrollDomain.csproj">
+      <Project>{58F2E866-3A42-4C2B-B67F-3EF219EEED65}</Project>
+      <Name>PayrollDomain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PayrollFactory\PayrollFactory.csproj">
+      <Project>{BC5D33AF-DDDD-4559-B192-632C891298B9}</Project>
+      <Name>PayrollFactory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RequestsFactory\RequestsFactory.csproj">
+      <Project>{71BC994E-8A7B-4B31-B42E-3083F105939C}</Project>
+      <Name>RequestsFactory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TextParserTransactionSource\TextParserTransactionSource.csproj">
+      <Project>{E348786A-D215-4644-8876-6B4977FD39DF}</Project>
+      <Name>TextParserTransactionSource</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TransactionApplication\TransactionApplication.csproj">
+      <Project>{A7D0186E-1FBD-4E06-8D35-44396BE98897}</Project>
+      <Name>TransactionApplication</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TransactionFactory\TransactionFactory.csproj">
+      <Project>{6B0AB115-8CB5-4CA5-B620-1C0BA5D14DB2}</Project>
+      <Name>TransactionFactory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TransactionImplementation\TransactionImplementation.csproj">
+      <Project>{DE7BC511-8EA6-4437-BD08-C0F4CE9E6EC2}</Project>
+      <Name>TransactionImplementation</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\NUnit3TestAdapter.3.8.0\build\net35\NUnit3TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit3TestAdapter.3.8.0\build\net35\NUnit3TestAdapter.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

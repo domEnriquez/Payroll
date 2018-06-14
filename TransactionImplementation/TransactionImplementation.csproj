@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DE7BC511-8EA6-4437-BD08-C0F4CE9E6EC2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TransactionImplementation</RootNamespace>
+    <AssemblyName>TransactionImplementation</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddCommissionedEmployee.cs" />
+    <Compile Include="AddHourlyEmployee.cs" />
+    <Compile Include="AddSalariedEmployee.cs" />
+    <Compile Include="ChangeCommisionedTransaction.cs" />
+    <Compile Include="ChangeDirectMethodTransaction.cs" />
+    <Compile Include="ChangeHoldMethodTransaction.cs" />
+    <Compile Include="ChangeHourlyTransaction.cs" />
+    <Compile Include="ChangeMailMethodTransaction.cs" />
+    <Compile Include="ChangeMemberTransaction.cs" />
+    <Compile Include="ChangeNameTransaction.cs" />
+    <Compile Include="ChangeSalariedTransaction.cs" />
+    <Compile Include="ChangeUnaffiliatedTransaction.cs" />
+    <Compile Include="DeleteEmployeeTransaction.cs" />
+    <Compile Include="PayDayTransaction.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Requests\AddCommissionedEmployeeRequest.cs" />
+    <Compile Include="Requests\AddHourlyEmployeeRequest.cs" />
+    <Compile Include="Requests\AddSalariedEmployeeRequest.cs" />
+    <Compile Include="Requests\ChangeCommissionedRequest.cs" />
+    <Compile Include="Requests\ChangeDirectMethodRequest.cs" />
+    <Compile Include="Requests\ChangeHoldMethodRequest.cs" />
+    <Compile Include="Requests\ChangeHourlyRequest.cs" />
+    <Compile Include="Requests\DeleteEmployeeRequest.cs" />
+    <Compile Include="Requests\RequestFactoryImplementation.cs" />
+    <Compile Include="Requests\ServiceChargeRequest.cs" />
+    <Compile Include="Requests\TimeCardRequest.cs" />
+    <Compile Include="Requests\SalesReceiptRequest.cs" />
+    <Compile Include="SalesReceiptTransaction.cs" />
+    <Compile Include="ServiceChargeTransaction.cs" />
+    <Compile Include="TimeCardTransaction.cs" />
+    <Compile Include="TransactionFactoryImplementation.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AbstractTransactions\AbstractTransactions.csproj">
+      <Project>{5a73c708-4a23-4e6a-b369-2ccd985dd935}</Project>
+      <Name>AbstractTransactions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PayrollDatabase\PayrollDatabase.csproj">
+      <Project>{CD89AEA1-7DCF-4B2D-B48C-4EE35D3E587A}</Project>
+      <Name>PayrollDatabase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PayrollDomain\PayrollDomain.csproj">
+      <Project>{58F2E866-3A42-4C2B-B67F-3EF219EEED65}</Project>
+      <Name>PayrollDomain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PayrollFactory\PayrollFactory.csproj">
+      <Project>{bc5d33af-dddd-4559-b192-632c891298b9}</Project>
+      <Name>PayrollFactory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RequestsFactory\RequestsFactory.csproj">
+      <Project>{71BC994E-8A7B-4B31-B42E-3083F105939C}</Project>
+      <Name>RequestsFactory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TransactionApplication\TransactionApplication.csproj">
+      <Project>{a7d0186e-1fbd-4e06-8d35-44396be98897}</Project>
+      <Name>TransactionApplication</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TransactionFactory\TransactionFactory.csproj">
+      <Project>{6b0ab115-8cb5-4ca5-b620-1c0ba5d14db2}</Project>
+      <Name>TransactionFactory</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
